@@ -1,5 +1,5 @@
-const fetchmerit = async (contact) => {
-  const url1 = `https://mhazmbcbujixalspvqrz.supabase.co/rest/v1/VacantMeritTbl?contact=eq.${contact}&select=*`;
+const fetchmerit = async (contact, dob1) => {
+  const url1 = `https://mhazmbcbujixalspvqrz.supabase.co/rest/v1/VacantMeritTbl?contact=eq.${contact}&dob=eq.${dob1}&select=*`;
   try {
     console.log(url1);
     const response = await fetch(url1, {

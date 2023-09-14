@@ -17,7 +17,7 @@
         Sardar Vallabhbhai Patel Institute of Technology,Vasad.
       </h1>
 
-      <div x-data="{contact:'',dt:{}}" class="mt-2 p-4">
+      <div x-data="{contact:'',dob1:'',dt:{}}" class="mt-2 p-4">
         <div class="flex flex-col">
           <label class="text-lg font-bold" for="conatct_number"
             >Your Contact Number</label
@@ -29,9 +29,18 @@
             id="conatct_number"
           />
         </div>
+        <div class="flex flex-col">
+          <label class="text-lg font-bold" for="dob1">Birth Date</label>
+          <input
+            class="my-2 p-2 border rounded"
+            x-model="dob1"
+            type="date"
+            id="dob1"
+          />
+        </div>
         <div class="flex justify-center">
           <button
-            x-on:click="dt=await fetchmerit(contact);"
+            x-on:click="dt=await fetchmerit(contact,dob1);"
             class="bg-blue-500 text-white p-2 hover:bg-blue-400 rounded w-48"
           >
             Get Merit
@@ -47,8 +56,17 @@
           x-show="!dt.error && dt.dt.length>0"
           class="my-2 p-2 text-lg font-bold border"
         >
-          <p>Merit Number: <span x-text="dt.dt[0].merit_number"></span></p>
-
+          <p>
+            Merit Number:
+            <span
+              class="text-blue-800 text-lg"
+              x-text="dt.dt[0].merit_number"
+            ></span>
+          </p>
+          <p>
+            Branch:
+            <span class="text-blue-800 text-lg" x-text="dt.dt[0].branch"></span>
+          </p>
           <p>
             Schedule Date: <span class="text-blue-800 text-lg">15-09-2023</span>
           </p>
